@@ -29,6 +29,7 @@ class Course(models.Model):
                                     ondelete='cascade', string="Course", required=True)
         attendee_ids = fields.Many2many('res.partner', string="Attendees")
         taken_seats = fields.Float(string="Taken seats", compute='_taken_seats')
+        invoice = fields.Many2many('openacademy.invoice', string="Invoice Details")
 
 
         @api.depends('seats', 'attendee_ids')
@@ -75,5 +76,11 @@ class Course(models.Model):
             for r in self:
                 if r.instructor_id and r.instructor_id in r.attendee_ids:
                     raise exceptions.ValidationError("A session's instructor can't be an attendee")
+
+    class Invoice(models.Model):
+        _name = 'openacademy.invoice'
+        _description = "OpenAcademy Invoice"
+
+        session = fields.Many2many('openacademy.session')
 
 

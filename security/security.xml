@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="group_academy_maester"
+            model="res.groups">
+        <field name="name">OpenAcademy/Maester</field>
+    </record>
+    <record id="group_academy_student"
+            model="res.groups">
+        <field name="name">OpenAcademy/Student</field>
+    </record>
+    <record id="group_academy_archmaester"
+            model="res.groups">
+        <field name="name">OpenAcademy/Archmaester</field>
+    </record>
+</odoo>

@@ -94,8 +94,24 @@
             <field name="arch" type="xml">
                 <form string="Session Form">
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--<button name="action_invoice" class="oe_stat_button" type="object"
+                                context="{'search_default_category_id': active_id,'default_category_id': active_id}"
+                                attrs="{'invisible': [('product_count', '=', 0)]}"
+                                icon="fa-cutlery">
+                                <field string="Products" name="product_count" widget="statinfo"/>
+                            </button>-->
+                            <button type="object"
+                                name="action_invoice"
+                                class="oe_stat_button"
+                                attrs="{'invisible': [('invoice', '=', 0)]}"
+                                icon="fa-invoice">
+                                <field name="invoice" widget="statinfo" string="Invoice" help="Invoice"/>
+                            </button>
+                        </div>
+
                         <group>
-                             <group string="General">
+                            <group string="General">
                                 <field name="course_id"/>
                                 <field name="name"/>
                                 <field name="instructor_id"/>
